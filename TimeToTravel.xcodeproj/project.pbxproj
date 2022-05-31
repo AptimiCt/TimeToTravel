@@ -7,19 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27D9FE2846B54700B4D0F4 /* Storage.swift */; };
+		BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA002846B57700B4D0F4 /* Flight.swift */; };
+		BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */; };
 		BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600728456FA9008F58C0 /* AppDelegate.swift */; };
 		BBDF600A28456FA9008F58C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600928456FA9008F58C0 /* SceneDelegate.swift */; };
-		BBDF600C28456FA9008F58C0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600B28456FA9008F58C0 /* ViewController.swift */; };
+		BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600B28456FA9008F58C0 /* FlightViewController.swift */; };
 		BBDF600F28456FA9008F58C0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBDF600D28456FA9008F58C0 /* Main.storyboard */; };
 		BBDF601128456FAD008F58C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDF601028456FAD008F58C0 /* Assets.xcassets */; };
 		BBDF601428456FAD008F58C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBDF601228456FAD008F58C0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BB27D9FE2846B54700B4D0F4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
+		BB27DA002846B57700B4D0F4 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
+		BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCollectionViewCell.swift; sourceTree = "<group>"; };
 		BBDF600428456FA9008F58C0 /* TimeToTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeToTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDF600728456FA9008F58C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBDF600928456FA9008F58C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		BBDF600B28456FA9008F58C0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		BBDF600B28456FA9008F58C0 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		BBDF600E28456FA9008F58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		BBDF601028456FAD008F58C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBDF601328456FAD008F58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -37,6 +43,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BB27D9FB2846B3E500B4D0F4 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BBDF600B28456FA9008F58C0 /* FlightViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		BB27D9FC2846B40300B4D0F4 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BB27D9FD2846B40E00B4D0F4 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				BB27D9FE2846B54700B4D0F4 /* Storage.swift */,
+				BB27DA002846B57700B4D0F4 /* Flight.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		BBAE32C92846ABD500A0AABE /* Supporting files */ = {
+			isa = PBXGroup;
+			children = (
+				BBDF601228456FAD008F58C0 /* LaunchScreen.storyboard */,
+				BBDF601028456FAD008F58C0 /* Assets.xcassets */,
+				BBDF600D28456FA9008F58C0 /* Main.storyboard */,
+				BBDF600728456FA9008F58C0 /* AppDelegate.swift */,
+				BBDF600928456FA9008F58C0 /* SceneDelegate.swift */,
+				BBDF601528456FAD008F58C0 /* Info.plist */,
+			);
+			path = "Supporting files";
+			sourceTree = "<group>";
+		};
 		BBDF5FFB28456FA8008F58C0 = {
 			isa = PBXGroup;
 			children = (
@@ -56,13 +100,10 @@
 		BBDF600628456FA9008F58C0 /* TimeToTravel */ = {
 			isa = PBXGroup;
 			children = (
-				BBDF600728456FA9008F58C0 /* AppDelegate.swift */,
-				BBDF600928456FA9008F58C0 /* SceneDelegate.swift */,
-				BBDF600B28456FA9008F58C0 /* ViewController.swift */,
-				BBDF600D28456FA9008F58C0 /* Main.storyboard */,
-				BBDF601028456FAD008F58C0 /* Assets.xcassets */,
-				BBDF601228456FAD008F58C0 /* LaunchScreen.storyboard */,
-				BBDF601528456FAD008F58C0 /* Info.plist */,
+				BB27D9FD2846B40E00B4D0F4 /* Model */,
+				BB27D9FC2846B40300B4D0F4 /* View */,
+				BB27D9FB2846B3E500B4D0F4 /* Controller */,
+				BBAE32C92846ABD500A0AABE /* Supporting files */,
 			);
 			path = TimeToTravel;
 			sourceTree = "<group>";
@@ -138,8 +179,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BBDF600C28456FA9008F58C0 /* ViewController.swift in Sources */,
+				BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */,
+				BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */,
+				BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */,
 				BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */,
+				BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */,
 				BBDF600A28456FA9008F58C0 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -216,6 +260,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "TimeToTravel/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -223,6 +268,7 @@
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -270,12 +316,14 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "TimeToTravel/Supporting files/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -289,7 +337,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5BPW3NPX5G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TimeToTravel/Info.plist;
+				INFOPLIST_FILE = "TimeToTravel/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -319,7 +367,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 5BPW3NPX5G;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_FILE = TimeToTravel/Info.plist;
+				INFOPLIST_FILE = "TimeToTravel/Supporting files/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
