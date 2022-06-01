@@ -10,6 +10,8 @@
 		BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27D9FE2846B54700B4D0F4 /* Storage.swift */; };
 		BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA002846B57700B4D0F4 /* Flight.swift */; };
 		BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */; };
+		BBC912012847E8DA009348A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC912002847E8DA009348A5 /* Constants.swift */; };
+		BBC912052848001C009348A5 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC912042848001C009348A5 /* UIView+Ext.swift */; };
 		BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600728456FA9008F58C0 /* AppDelegate.swift */; };
 		BBDF600A28456FA9008F58C0 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600928456FA9008F58C0 /* SceneDelegate.swift */; };
 		BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600B28456FA9008F58C0 /* FlightViewController.swift */; };
@@ -22,6 +24,8 @@
 		BB27D9FE2846B54700B4D0F4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		BB27DA002846B57700B4D0F4 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBC912002847E8DA009348A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		BBC912042848001C009348A5 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BBDF600428456FA9008F58C0 /* TimeToTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeToTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDF600728456FA9008F58C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBDF600928456FA9008F58C0 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -71,6 +75,8 @@
 		BBAE32C92846ABD500A0AABE /* Supporting files */ = {
 			isa = PBXGroup;
 			children = (
+				BBC912032847FF81009348A5 /* Extension */,
+				BBC912022847FF43009348A5 /* Constants */,
 				BBDF601228456FAD008F58C0 /* LaunchScreen.storyboard */,
 				BBDF601028456FAD008F58C0 /* Assets.xcassets */,
 				BBDF600D28456FA9008F58C0 /* Main.storyboard */,
@@ -79,6 +85,22 @@
 				BBDF601528456FAD008F58C0 /* Info.plist */,
 			);
 			path = "Supporting files";
+			sourceTree = "<group>";
+		};
+		BBC912022847FF43009348A5 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				BBC912002847E8DA009348A5 /* Constants.swift */,
+			);
+			path = Constants;
+			sourceTree = "<group>";
+		};
+		BBC912032847FF81009348A5 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				BBC912042848001C009348A5 /* UIView+Ext.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		BBDF5FFB28456FA8008F58C0 = {
@@ -179,10 +201,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBC912052848001C009348A5 /* UIView+Ext.swift in Sources */,
 				BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */,
 				BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */,
 				BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */,
 				BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */,
+				BBC912012847E8DA009348A5 /* Constants.swift in Sources */,
 				BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */,
 				BBDF600A28456FA9008F58C0 /* SceneDelegate.swift in Sources */,
 			);
