@@ -38,12 +38,12 @@ final class FlightViewController: UIViewController {
 
 extension FlightViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        10
+        jsonData.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlightCollectionViewCell", for: indexPath) as? FlightCollectionViewCell else { return UICollectionViewCell() }
-        cell.configureCell(flight: jsonData[0])
+        cell.configureCell(flight: jsonData[indexPath.row])
         cell.layer.cornerRadius = 15
         return cell
     }
@@ -52,11 +52,15 @@ extension FlightViewController: UICollectionViewDataSource {
 extension FlightViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = Constants.screenWeight - 16
-        return CGSize(width: width, height: width / 3)
+        return CGSize(width: width, height: ((width + 16) / 5 ) * 2)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return UIEdgeInsets(top: 8, left: 8, bottom: 8, right: 8)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("Нажата ячейка:\(indexPath.row)")
     }
 }
 
