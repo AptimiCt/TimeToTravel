@@ -19,8 +19,8 @@ final class FlightViewController: UIViewController {
     //MARK: - init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        self.title = "Авиаперелеты"
-        self.view.backgroundColor = .white
+        self.title = Constants.title
+        self.view.backgroundColor = UIColor(named: Constants.accentColor)
     }
     
     required init?(coder: NSCoder) {
@@ -31,11 +31,12 @@ final class FlightViewController: UIViewController {
         super.viewDidLoad()
         jsonData = Storage().fetchData()
         configureView()
-        collectionView.register(FlightCollectionViewCell.self, forCellWithReuseIdentifier: "FlightCollectionViewCell")
+        collectionView.register(FlightCollectionViewCell.self, forCellWithReuseIdentifier: Constants.flightCollectionViewCell)
         setupDelegate()
     }
     
     private func configureView(){
+        collectionView.backgroundColor =  UIColor(named: Constants.accentColor)
         view.addSubview(collectionView)
         NSLayoutConstraint.activate([
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -53,7 +54,7 @@ extension FlightViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "FlightCollectionViewCell", for: indexPath) as? FlightCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.flightCollectionViewCell, for: indexPath) as? FlightCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(flight: jsonData[indexPath.row])
         cell.layer.cornerRadius = 15
         return cell

@@ -11,58 +11,60 @@ final class FlightCollectionViewCell: UICollectionViewCell {
     
     //MARK: - vars
     private let imageStartCity: UIImageView = {
-        let image = UIImage(systemName: "airplane.departure")
+        let image = UIImage(systemName: Constants.airplaneDeparture)
         let imageView = UIImageView(image: image)
         return imageView
     }()
     private let startCity: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont(name: Constants.proximaNovaSemibold, size: 17)
+        label.textColor = UIColor(named: Constants.darkViolet)
         return label
     }()
     private let imageEndCity: UIImageView = {
-        let image = UIImage(systemName: "airplane.arrival")
+        let image = UIImage(systemName: Constants.airplaneArrival)
         let imageView = UIImageView(image: image)
         return imageView
     }()
     private let endCity: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 17)
+        label.font = UIFont(name: Constants.proximaNovaSemibold, size: 17)
+        label.textColor = UIColor(named: Constants.darkViolet)
         return label
     }()
     private let departureDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Дата отправления:"
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .darkGray
+        label.text = Constants.departureDate
+        label.font = UIFont(name: Constants.proximaNovaRegular, size: 15)
+        label.textColor = UIColor(named: Constants.darkViolet)
         return label
     }()
     private let startDate: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .darkGray
+        label.font = UIFont(name: Constants.proximaNovaRegular, size: 14)
+        label.textColor = UIColor(named: Constants.darkViolet)
         label.minimumScaleFactor = 0.9
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     private let returnDateLabel: UILabel = {
         let label = UILabel()
-        label.text = "Дата возвращения:"
-        label.font = UIFont.systemFont(ofSize: 15)
-        label.textColor = .darkGray
+        label.text = Constants.returnDate
+        label.font = UIFont(name: Constants.proximaNovaRegular, size: 15)
+        label.textColor = UIColor(named: Constants.darkViolet)
         return label
     }()
     private let endDate: UILabel = {
         let label = UILabel()
-        label.font = UIFont.systemFont(ofSize: 14)
-        label.textColor = .darkGray
+        label.font = UIFont(name: Constants.proximaNovaRegular, size: 14)
+        label.textColor = UIColor(named: Constants.darkViolet)
         label.minimumScaleFactor = 0.9
         label.adjustsFontSizeToFitWidth = true
         return label
     }()
     private lazy var like: UIButton = {
         let button = UIButton()
-        let image = UIImage(systemName: "hand.thumbsup.fill")
+        let image = UIImage(systemName: Constants.handThumbsupFill)
         button.setBackgroundImage(image, for: .normal)
         button.addTarget(self, action: #selector(tappedLike), for: .touchUpInside)
         return button
@@ -79,14 +81,22 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         stackView.distribution = .fillEqually
         return stackView
     }()
+    private let price: UILabel = {
+        let label = UILabel()
+        label.font = UIFont(name: Constants.proximaNovaSemibold, size: 20)
+        label.textColor = UIColor(named: Constants.colorPrice)
+        label.minimumScaleFactor = 0.9
+        label.adjustsFontSizeToFitWidth = true
+        return label
+    }()
     
     //MARK: - init
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.backgroundColor = UIColor(named: "ColorCell")
+        self.backgroundColor = UIColor(named: Constants.colorCell)
         startPoint.addArrangedSubviews(to: imageStartCity, startCity, departureDateLabel, startDate)
         endPoint.addArrangedSubviews(to: imageEndCity, endCity, returnDateLabel, endDate)
-        self.addSubviews(to: startPoint, endPoint, like)
+        self.addSubviews(to: startPoint, endPoint, price, like)
         configureConstrainsViews()
         configureStartPoint()
         configureEndPoint()
@@ -102,6 +112,7 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         endCity.text = flight.endCity
         startDate.text = flight.startDate
         endDate.text = flight.endDate
+        price.text = "\(flight.price) РУБ"
         like.tintColor = .gray
     }
     //MARK: - @objc private func
@@ -123,10 +134,14 @@ final class FlightCollectionViewCell: UICollectionViewCell {
             endPoint.bottomAnchor.constraint(equalTo: like.topAnchor, constant: -10),
             endPoint.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5, constant: -10),
             
-            like.centerXAnchor.constraint(equalTo: self.centerXAnchor),
+            like.centerXAnchor.constraint(equalTo: endPoint.centerXAnchor),
             like.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -5),
             like.heightAnchor.constraint(equalToConstant: 30),
-            like.widthAnchor.constraint(equalTo: like.heightAnchor)
+            like.widthAnchor.constraint(equalTo: like.heightAnchor),
+            
+            price.centerXAnchor.constraint(equalTo: startPoint.centerXAnchor),
+            price.centerYAnchor.constraint(equalTo: like.centerYAnchor),
+            price.bottomAnchor.constraint(equalTo: self.safeAreaLayoutGuide.bottomAnchor, constant: -5),
         ])
     }
     private func configureStartPoint(){
