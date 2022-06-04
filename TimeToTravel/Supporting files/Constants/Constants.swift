@@ -34,5 +34,6 @@ struct Constants {
     //MARK: - Cell identifier
     static let flightCollectionViewCell = "FlightCollectionViewCell"
     
-    
+    //MARK: - url
+    static let travelURL = "https://travel.wildberries.ru/statistics/v1/cheap"
 }

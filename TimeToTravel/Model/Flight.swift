@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct Flight {
+struct Flight: Codable {
     let startCity: String
     let startCityCode: String
     let endCity: String

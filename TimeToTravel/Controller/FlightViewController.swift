@@ -9,11 +9,19 @@ import UIKit
 
 final class FlightViewController: UIViewController {
     
+    //MARK: - private var
     private var jsonData = [Flight]()
     private var collectionView: UICollectionView = {
         let collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
+    }()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        indicator.color = .white
+        indicator.isHidden = true
+        indicator.hidesWhenStopped = true
+        return indicator
     }()
     
     //MARK: - init
@@ -27,14 +35,28 @@ final class FlightViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
     
+    //MARK: - override func
     override func viewDidLoad() {
         super.viewDidLoad()
-        jsonData = Storage().fetchData()
-        configureView()
+        NetworkService.shared.fetchData(url: Constants.travelURL) { [weak self] flights in
+            self?.jsonData = flights
+            self?.activityIndicator.stopAnimating()
+            self?.collectionView.reloadData()
+        }
         collectionView.register(FlightCollectionViewCell.self, forCellWithReuseIdentifier: Constants.flightCollectionViewCell)
+        configureView()
+        configureActivityIndicator()
         setupDelegate()
     }
     
+    //MARK: - private func
+    private func configureActivityIndicator(){
+        view.addSubviews(to: activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
     private func configureView(){
         collectionView.backgroundColor =  UIColor(named: Constants.accentColor)
         view.addSubview(collectionView)
@@ -42,12 +64,12 @@ final class FlightViewController: UIViewController {
             collectionView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             collectionView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
+            collectionView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
         ])
     }
-    
 }
 
+//MARK: - extension
 extension FlightViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         jsonData.count
@@ -57,6 +79,10 @@ extension FlightViewController: UICollectionViewDataSource {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.flightCollectionViewCell, for: indexPath) as? FlightCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(flight: jsonData[indexPath.row])
         cell.layer.cornerRadius = 15
+        cell.layer.shadowColor = UIColor(named: Constants.darkViolet)?.cgColor
+        cell.layer.shadowOffset = CGSize(width: 0, height: 0)
+        cell.layer.shadowOpacity = 1
+        cell.layer.shadowRadius = 4
         return cell
     }
 }
@@ -75,7 +101,6 @@ extension FlightViewController: UICollectionViewDelegateFlowLayout {
         print("Нажата ячейка:\(indexPath.row)")
     }
 }
-
 
 extension FlightViewController {
     func setupDelegate(){

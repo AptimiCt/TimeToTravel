@@ -14,10 +14,13 @@
 		BBC912052848001C009348A5 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC912042848001C009348A5 /* UIView+Ext.swift */; };
 		BBC91208284A8815009348A5 /* ProximaNova-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBC91207284A8815009348A5 /* ProximaNova-Semibold.ttf */; };
 		BBC9120A284A8827009348A5 /* ProximaNova-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBC91209284A8827009348A5 /* ProximaNova-Regular.ttf */; };
+		BBC9120C284AC460009348A5 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC9120B284AC460009348A5 /* NetworkService.swift */; };
 		BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600728456FA9008F58C0 /* AppDelegate.swift */; };
 		BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBDF600B28456FA9008F58C0 /* FlightViewController.swift */; };
 		BBDF601128456FAD008F58C0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BBDF601028456FAD008F58C0 /* Assets.xcassets */; };
 		BBDF601428456FAD008F58C0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BBDF601228456FAD008F58C0 /* LaunchScreen.storyboard */; };
+		BBECF0DA284B7D4100E1A20B /* Travel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBECF0D9284B7D4100E1A20B /* Travel.swift */; };
+		BBECF0DD284B8D2300E1A20B /* AnyCodable in Frameworks */ = {isa = PBXBuildFile; productRef = BBECF0DC284B8D2300E1A20B /* AnyCodable */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,12 +31,14 @@
 		BBC912042848001C009348A5 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BBC91207284A8815009348A5 /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
 		BBC91209284A8827009348A5 /* ProximaNova-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Regular.ttf"; sourceTree = "<group>"; };
+		BBC9120B284AC460009348A5 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		BBDF600428456FA9008F58C0 /* TimeToTravel.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TimeToTravel.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BBDF600728456FA9008F58C0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		BBDF600B28456FA9008F58C0 /* FlightViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightViewController.swift; sourceTree = "<group>"; };
 		BBDF601028456FAD008F58C0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		BBDF601328456FAD008F58C0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BBDF601528456FAD008F58C0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		BBECF0D9284B7D4100E1A20B /* Travel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Travel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -41,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BBECF0DD284B8D2300E1A20B /* AnyCodable in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +74,8 @@
 			children = (
 				BB27D9FE2846B54700B4D0F4 /* Storage.swift */,
 				BB27DA002846B57700B4D0F4 /* Flight.swift */,
+				BBC9120B284AC460009348A5 /* NetworkService.swift */,
+				BBECF0D9284B7D4100E1A20B /* Travel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -154,6 +162,9 @@
 			dependencies = (
 			);
 			name = TimeToTravel;
+			packageProductDependencies = (
+				BBECF0DC284B8D2300E1A20B /* AnyCodable */,
+			);
 			productName = TimeToTravel;
 			productReference = BBDF600428456FA9008F58C0 /* TimeToTravel.app */;
 			productType = "com.apple.product-type.application";
@@ -182,6 +193,9 @@
 				Base,
 			);
 			mainGroup = BBDF5FFB28456FA8008F58C0;
+			packageReferences = (
+				BBECF0DB284B8D2300E1A20B /* XCRemoteSwiftPackageReference "AnyCodable" */,
+			);
 			productRefGroup = BBDF600528456FA9008F58C0 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -212,9 +226,11 @@
 			files = (
 				BBC912052848001C009348A5 /* UIView+Ext.swift in Sources */,
 				BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */,
+				BBC9120C284AC460009348A5 /* NetworkService.swift in Sources */,
 				BBDF600C28456FA9008F58C0 /* FlightViewController.swift in Sources */,
 				BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */,
 				BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */,
+				BBECF0DA284B7D4100E1A20B /* Travel.swift in Sources */,
 				BBC912012847E8DA009348A5 /* Constants.swift in Sources */,
 				BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */,
 			);
@@ -366,7 +382,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -377,7 +393,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -395,7 +411,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -406,7 +422,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -432,6 +448,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		BBECF0DB284B8D2300E1A20B /* XCRemoteSwiftPackageReference "AnyCodable" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Flight-School/AnyCodable.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.6.5;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		BBECF0DC284B8D2300E1A20B /* AnyCodable */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = BBECF0DB284B8D2300E1A20B /* XCRemoteSwiftPackageReference "AnyCodable" */;
+			productName = AnyCodable;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = BBDF5FFC28456FA8008F58C0 /* Project object */;
 }
