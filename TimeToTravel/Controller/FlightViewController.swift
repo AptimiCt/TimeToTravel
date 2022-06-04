@@ -15,6 +15,13 @@ final class FlightViewController: UIViewController {
         collectionView.translatesAutoresizingMaskIntoConstraints = false
         return collectionView
     }()
+    private let activityIndicator: UIActivityIndicatorView = {
+        let indicator = UIActivityIndicatorView(style: UIActivityIndicatorView.Style.large)
+        indicator.color = .white
+        indicator.isHidden = true
+        indicator.hidesWhenStopped = true
+        return indicator
+    }()
     
     //MARK: - init
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: Bundle?) {
@@ -29,12 +36,24 @@ final class FlightViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        jsonData = Storage().fetchData()
-        configureView()
+        NetworkService.shared.fetchData(url: Constants.travelURL) { [weak self] flights in
+            self?.jsonData = flights
+            self?.activityIndicator.stopAnimating()
+            self?.collectionView.reloadData()
+        }
         collectionView.register(FlightCollectionViewCell.self, forCellWithReuseIdentifier: Constants.flightCollectionViewCell)
+        configureView()
+        configureActivityIndicator()
         setupDelegate()
     }
     
+    private func configureActivityIndicator(){
+        view.addSubviews(to: activityIndicator)
+        activityIndicator.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        activityIndicator.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        activityIndicator.isHidden = false
+        activityIndicator.startAnimating()
+    }
     private func configureView(){
         collectionView.backgroundColor =  UIColor(named: Constants.accentColor)
         view.addSubview(collectionView)
@@ -45,7 +64,6 @@ final class FlightViewController: UIViewController {
             collectionView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         ])
     }
-    
 }
 
 extension FlightViewController: UICollectionViewDataSource {
@@ -75,7 +93,6 @@ extension FlightViewController: UICollectionViewDelegateFlowLayout {
         print("Нажата ячейка:\(indexPath.row)")
     }
 }
-
 
 extension FlightViewController {
     func setupDelegate(){
