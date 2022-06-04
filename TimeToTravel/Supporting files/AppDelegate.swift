@@ -18,7 +18,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let flightViewController = FlightViewController()
         let navigationFlightViewController = UINavigationController(rootViewController: flightViewController)
-        
+        if #available(iOS 15.0, *) {
+            let appearanceNavigationBar = UINavigationBarAppearance()
+            appearanceNavigationBar.backgroundColor = UIColor(named: Constants.accentColor)
+            navigationFlightViewController.navigationBar.standardAppearance = appearanceNavigationBar
+        }
         window?.rootViewController = navigationFlightViewController
         window?.makeKeyAndVisible()
         return true
