@@ -10,6 +10,7 @@ import UIKit
 final class FlightCollectionViewCell: UICollectionViewCell {
     
     //MARK: - vars
+    private var searchToken: String?
     private let imageStartCity: UIImageView = {
         let image = UIImage(systemName: Constants.airplaneDeparture)
         let imageView = UIImageView(image: image)
@@ -113,12 +114,21 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         startDate.text = flight.startDate
         endDate.text = flight.endDate
         price.text = "\(flight.price) РУБ"
-        like.tintColor = .gray
+        searchToken = flight.searchToken
+        guard let searchToken = searchToken else { return }
+        let tapedLike = UserDefaults.standard.bool(forKey: searchToken)
+        like.tintColor = tapedLike ? .yellow : .gray
     }
     //MARK: - @objc private func
     @objc
     private func tappedLike(){
-        print("test")
+        let userDefaults = UserDefaults.standard
+        guard let searchToken = searchToken else { return }
+        var tapedLike = UserDefaults.standard.bool(forKey: searchToken)
+        print(tapedLike)
+        tapedLike.toggle()
+        print(tapedLike)
+        userDefaults.set(tapedLike, forKey: searchToken)
     }
     //MARK: - private func
     private func configureConstrainsViews(){
