@@ -49,6 +49,10 @@ final class FlightViewController: UIViewController {
         setupDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     //MARK: - private func
     private func configureActivityIndicator(){
         view.addSubviews(to: activityIndicator)
