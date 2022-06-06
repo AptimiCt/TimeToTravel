@@ -49,6 +49,10 @@ final class FlightViewController: UIViewController {
         setupDelegate()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        collectionView.reloadData()
+    }
+    
     //MARK: - private func
     private func configureActivityIndicator(){
         view.addSubviews(to: activityIndicator)
@@ -98,7 +102,9 @@ extension FlightViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("Нажата ячейка:\(indexPath.row)")
+        let vc = DetailViewController()
+        vc.configureView(flight: jsonData[indexPath.row])
+        navigationController?.pushViewController(vc, animated: true)
     }
 }
 

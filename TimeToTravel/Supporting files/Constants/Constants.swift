@@ -19,6 +19,7 @@ struct Constants {
     static let airplaneDeparture = "airplane.departure"
     static let airplaneArrival = "airplane.arrival"
     static let handThumbsupFill = "hand.thumbsup.fill"
+    static let repeatImage = "repeat"
     
     //MARK: - Colors
     static let accentColor = "AccentColor"
