@@ -125,10 +125,9 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         let userDefaults = UserDefaults.standard
         guard let searchToken = searchToken else { return }
         var tapedLike = UserDefaults.standard.bool(forKey: searchToken)
-        print(tapedLike)
         tapedLike.toggle()
-        print(tapedLike)
         userDefaults.set(tapedLike, forKey: searchToken)
+        like.tintColor = tapedLike ? .yellow : .gray
     }
     //MARK: - private func
     private func configureConstrainsViews(){
