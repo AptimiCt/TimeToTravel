@@ -82,6 +82,8 @@ extension FlightViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: Constants.flightCollectionViewCell, for: indexPath) as? FlightCollectionViewCell else { return UICollectionViewCell() }
         cell.configureCell(flight: jsonData[indexPath.row])
+        cell.setIndexPath(indexPath: indexPath)
+        cell.delegate = self
         cell.layer.cornerRadius = 15
         cell.layer.shadowColor = UIColor(named: Constants.darkViolet)?.cgColor
         cell.layer.shadowOffset = CGSize(width: 0, height: 0)
@@ -112,5 +114,11 @@ extension FlightViewController {
     func setupDelegate(){
         collectionView.dataSource = self
         collectionView.delegate = self
+    }
+}
+
+extension FlightViewController: FlightCollectionViewCellDelegate {
+    func reloadCell(index: IndexPath) {
+        collectionView.reloadItems(at: [index])
     }
 }
