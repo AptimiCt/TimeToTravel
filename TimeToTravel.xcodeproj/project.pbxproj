@@ -10,6 +10,7 @@
 		BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27D9FE2846B54700B4D0F4 /* Storage.swift */; };
 		BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA002846B57700B4D0F4 /* Flight.swift */; };
 		BB27DA032846B5C300B4D0F4 /* FlightCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */; };
+		BBB1EEA0284D54DE0091689B /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBB1EE9F284D54DE0091689B /* DetailViewController.swift */; };
 		BBC912012847E8DA009348A5 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC912002847E8DA009348A5 /* Constants.swift */; };
 		BBC912052848001C009348A5 /* UIView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = BBC912042848001C009348A5 /* UIView+Ext.swift */; };
 		BBC91208284A8815009348A5 /* ProximaNova-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BBC91207284A8815009348A5 /* ProximaNova-Semibold.ttf */; };
@@ -27,6 +28,7 @@
 		BB27D9FE2846B54700B4D0F4 /* Storage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Storage.swift; sourceTree = "<group>"; };
 		BB27DA002846B57700B4D0F4 /* Flight.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Flight.swift; sourceTree = "<group>"; };
 		BB27DA022846B5C300B4D0F4 /* FlightCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlightCollectionViewCell.swift; sourceTree = "<group>"; };
+		BBB1EE9F284D54DE0091689B /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		BBC912002847E8DA009348A5 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BBC912042848001C009348A5 /* UIView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView+Ext.swift"; sourceTree = "<group>"; };
 		BBC91207284A8815009348A5 /* ProximaNova-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "ProximaNova-Semibold.ttf"; sourceTree = "<group>"; };
@@ -94,6 +96,40 @@
 			path = "Supporting files";
 			sourceTree = "<group>";
 		};
+		BBB1EE9B284D52FC0091689B /* FlightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BB27D9FD2846B40E00B4D0F4 /* Model */,
+				BB27D9FC2846B40300B4D0F4 /* View */,
+				BB27D9FB2846B3E500B4D0F4 /* Controller */,
+			);
+			path = FlightViewController;
+			sourceTree = "<group>";
+		};
+		BBB1EE9C284D534E0091689B /* DetailFlightViewController */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1EE9D284D540B0091689B /* View */,
+				BBB1EE9E284D54160091689B /* Controller */,
+			);
+			path = DetailFlightViewController;
+			sourceTree = "<group>";
+		};
+		BBB1EE9D284D540B0091689B /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		BBB1EE9E284D54160091689B /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				BBB1EE9F284D54DE0091689B /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		BBC912022847FF43009348A5 /* Constants */ = {
 			isa = PBXGroup;
 			children = (
@@ -138,9 +174,8 @@
 		BBDF600628456FA9008F58C0 /* TimeToTravel */ = {
 			isa = PBXGroup;
 			children = (
-				BB27D9FD2846B40E00B4D0F4 /* Model */,
-				BB27D9FC2846B40300B4D0F4 /* View */,
-				BB27D9FB2846B3E500B4D0F4 /* Controller */,
+				BBB1EE9C284D534E0091689B /* DetailFlightViewController */,
+				BBB1EE9B284D52FC0091689B /* FlightViewController */,
 				BBAE32C92846ABD500A0AABE /* Supporting files */,
 			);
 			path = TimeToTravel;
@@ -231,6 +266,7 @@
 				BB27D9FF2846B54700B4D0F4 /* Storage.swift in Sources */,
 				BBDF600828456FA9008F58C0 /* AppDelegate.swift in Sources */,
 				BBECF0DA284B7D4100E1A20B /* Travel.swift in Sources */,
+				BBB1EEA0284D54DE0091689B /* DetailViewController.swift in Sources */,
 				BBC912012847E8DA009348A5 /* Constants.swift in Sources */,
 				BB27DA012846B57700B4D0F4 /* Flight.swift in Sources */,
 			);
