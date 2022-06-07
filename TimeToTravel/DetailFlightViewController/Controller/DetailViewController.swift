@@ -119,8 +119,8 @@ class DetailViewController: UIViewController {
     func configureView(flight: Flight){
         startCity.text = flight.startCity
         endCity.text = flight.endCity
-        startDate.text = flight.startDate
-        endDate.text = flight.endDate
+        startDate.text = convertDate(flight.startDate)
+        endDate.text = convertDate(flight.endDate)
         price.text = "\(flight.price) РУБ"
         searchToken = flight.searchToken
         guard let searchToken = searchToken else { return }
@@ -140,6 +140,13 @@ class DetailViewController: UIViewController {
     }
 
     //MARK: - private func
+    private func convertDate(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        guard let data = dateFormatter.date(from: dateString) else { return String(describing: Date.now) }
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: data)
+    }
     private func configureConstrainsViews(){
         NSLayoutConstraint.activate([
             startPoint.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 10),

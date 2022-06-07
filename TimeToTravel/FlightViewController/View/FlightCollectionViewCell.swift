@@ -10,6 +10,7 @@ import UIKit
 final class FlightCollectionViewCell: UICollectionViewCell {
     
     //MARK: - vars
+    private var searchToken: String?
     private let imageStartCity: UIImageView = {
         let image = UIImage(systemName: Constants.airplaneDeparture)
         let imageView = UIImageView(image: image)
@@ -110,17 +111,32 @@ final class FlightCollectionViewCell: UICollectionViewCell {
     func configureCell(flight: Flight){
         startCity.text = flight.startCity
         endCity.text = flight.endCity
-        startDate.text = flight.startDate
-        endDate.text = flight.endDate
+        startDate.text = convertDate(flight.startDate)
+        endDate.text = convertDate(flight.endDate)
         price.text = "\(flight.price) РУБ"
-        like.tintColor = .gray
+        searchToken = flight.searchToken
+        guard let searchToken = searchToken else { return }
+        let tapedLike = UserDefaults.standard.bool(forKey: searchToken)
+        like.tintColor = tapedLike ? .yellow : .gray
     }
     //MARK: - @objc private func
     @objc
     private func tappedLike(){
-        print("test")
+        let userDefaults = UserDefaults.standard
+        guard let searchToken = searchToken else { return }
+        var tapedLike = UserDefaults.standard.bool(forKey: searchToken)
+        tapedLike.toggle()
+        userDefaults.set(tapedLike, forKey: searchToken)
+        like.tintColor = tapedLike ? .yellow : .gray
     }
     //MARK: - private func
+    private func convertDate(_ dateString: String) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ssZZZZZ"
+        guard let data = dateFormatter.date(from: dateString) else { return String(describing: Date.now) }
+        dateFormatter.dateFormat = "dd MMM yyyy"
+        return dateFormatter.string(from: data)
+    }
     private func configureConstrainsViews(){
         NSLayoutConstraint.activate([
             startPoint.leadingAnchor.constraint(equalTo: self.safeAreaLayoutGuide.leadingAnchor, constant: 10),
