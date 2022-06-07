@@ -7,9 +7,15 @@
 
 import UIKit
 
+protocol FlightCollectionViewCellDelegate: AnyObject{
+    func reloadCell(index: IndexPath)
+}
+
 final class FlightCollectionViewCell: UICollectionViewCell {
     
     //MARK: - vars
+    var indexPath: IndexPath?
+    weak var delegate: FlightCollectionViewCellDelegate?
     private var searchToken: String?
     private let imageStartCity: UIImageView = {
         let image = UIImage(systemName: Constants.airplaneDeparture)
@@ -117,7 +123,10 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         searchToken = flight.searchToken
         guard let searchToken = searchToken else { return }
         let tapedLike = UserDefaults.standard.bool(forKey: searchToken)
-        like.tintColor = tapedLike ? .yellow : .gray
+        like.tintColor = tapedLike ? .red : .gray
+    }
+    func setIndexPath(indexPath: IndexPath){
+        self.indexPath = indexPath
     }
     //MARK: - @objc private func
     @objc
@@ -127,7 +136,10 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         var tapedLike = UserDefaults.standard.bool(forKey: searchToken)
         tapedLike.toggle()
         userDefaults.set(tapedLike, forKey: searchToken)
-        like.tintColor = tapedLike ? .yellow : .gray
+        guard let indexPath = indexPath else {
+            return
+        }
+        delegate?.reloadCell(index: indexPath)
     }
     //MARK: - private func
     private func convertDate(_ dateString: String) -> String {
