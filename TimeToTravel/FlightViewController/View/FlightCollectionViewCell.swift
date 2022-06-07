@@ -123,7 +123,7 @@ final class FlightCollectionViewCell: UICollectionViewCell {
         searchToken = flight.searchToken
         guard let searchToken = searchToken else { return }
         let tapedLike = UserDefaults.standard.bool(forKey: searchToken)
-        like.tintColor = tapedLike ? .yellow : .gray
+        like.tintColor = tapedLike ? .red : .gray
     }
     func setIndexPath(indexPath: IndexPath){
         self.indexPath = indexPath

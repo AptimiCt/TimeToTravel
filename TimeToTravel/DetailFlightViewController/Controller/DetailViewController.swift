@@ -125,7 +125,7 @@ class DetailViewController: UIViewController {
         searchToken = flight.searchToken
         guard let searchToken = searchToken else { return }
         let tapedLike = UserDefaults.standard.bool(forKey: searchToken)
-        like.tintColor = tapedLike ? .yellow : .gray
+        like.tintColor = tapedLike ? .red : .gray
 
     }
     //MARK: - @objc private func
@@ -136,7 +136,7 @@ class DetailViewController: UIViewController {
             var tapedLike = UserDefaults.standard.bool(forKey: searchToken)
             tapedLike.toggle()
             userDefaults.set(tapedLike, forKey: searchToken)
-            like.tintColor = tapedLike ? .yellow : .gray
+            like.tintColor = tapedLike ? .red : .gray
     }
 
     //MARK: - private func
